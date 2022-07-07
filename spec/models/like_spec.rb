@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user1) { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
+  let(:post) do
+    Post.create(author: user1, title: 'Hello', text: 'This is my first post', likes_counter: 0, comments_counter: 0)
+  end
+  let(:like) do
+    Like.create(post:, author: user1)
+  end
+
+  describe Like do
+    it { should belong_to(:post) }
+  end
 end
