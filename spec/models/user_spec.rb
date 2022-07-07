@@ -4,8 +4,6 @@ RSpec.describe User, type: :model do
 
   let (:user) { User.create(name: 'Monica', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
 
-  before { user.save }
-
   context 'user.name' do
     it 'is not valid with a name less than 3 characters' do
       user.name = 'M'
