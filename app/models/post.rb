@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: :post_id
   has_many :likes, foreign_key: :post_id
 
+  validates :title, presence: true, length: { in: 3..10 }
+
   after_save :update_posts_counter
 
   def update_posts_counter
