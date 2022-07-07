@@ -27,11 +27,11 @@ RSpec.describe User, type: :model do
   end
 
   context '.last_three_posts' do
-    let(:post1) { Post.create(author: user, title: 'Hello', text: 'This is my first post') }
-    let(:post2) {Post.create(author: user, title: 'Hello', text: 'This is my second post')}
-    let(:post3) {Post.create(author: user, title: 'Hello', text: 'This is my third post')}
-    let(:post4) {Post.create(author: user, title: 'Hello', text: 'This is my fourth post')}
-    let(:post5) {Post.create(author: user, title: 'Hello', text: 'This is my fifth post')}
+    let(:post1) { Post.create(author: user, title: 'Hello', text: 'This is my first post', likes_counter: 0, comments_counter: 0) }
+    let(:post2) {Post.create(author: user, title: 'Hello', text: 'This is my second post', likes_counter: 0, comments_counter: 0)}
+    let(:post3) {Post.create(author: user, title: 'Hello', text: 'This is my third post', likes_counter: 0, comments_counter: 0)}
+    let(:post4) {Post.create(author: user, title: 'Hello', text: 'This is my fourth post', likes_counter: 0, comments_counter: 0)}
+    let(:post5) {Post.create(author: user, title: 'Hello', text: 'This is my fifth post', likes_counter: 0, comments_counter: 0)}
 
     it 'returns 0 if user does not have any posts' do
       posts_count = user.last_three_posts.length
