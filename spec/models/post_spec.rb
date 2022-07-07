@@ -36,4 +36,12 @@ RSpec.describe Post, type: :model do
       expect(post).to be_valid
     end
   end
+
+  context 'update_posts_counter' do
+    it 'returns 1 if author has one post' do
+      user_posts_count = post.update_posts_counter
+      expected = 1
+      expect(user_posts_count).to eq(expected)
+    end
+  end
 end
