@@ -33,9 +33,9 @@ RSpec.describe User, type: :model do
     let(:post4) {Post.create(author: user, title: 'Hello', text: 'This is my fourth post', likes_counter: 0, comments_counter: 0)}
     let(:post5) {Post.create(author: user, title: 'Hello', text: 'This is my fifth post', likes_counter: 0, comments_counter: 0)}
 
-    it 'returns 0 if user does not have any posts' do
-      posts_count = user.last_three_posts.length
-      expected = 0
+    it 'returns empty array if user does not have any posts' do
+      posts_count = user.last_three_posts
+      expected = []
       expect(posts_count).to eq(expected)
     end
 
