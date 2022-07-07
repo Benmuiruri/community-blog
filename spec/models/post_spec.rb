@@ -14,4 +14,15 @@ RSpec.describe Post, type: :model do
       expect(post).to be_valid
     end
   end
+
+  context 'posts.comments_counter' do
+    it 'is not valid if comments_counter is not equal or greater than 0' do
+      post.comments_counter = nil
+      expect(post).to_not be_valid
+    end
+
+    it 'is valid if comments_counter equal or greater than 0' do
+      expect(post).to be_valid
+    end
+  end
 end
