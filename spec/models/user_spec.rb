@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
 
   let (:user) { User.create(name: 'Monica', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
 
-  context 'user.name' do
+  context '.name' do
     it 'is not valid with a name less than 3 characters' do
       user.name = 'M'
       expect(user).to_not be_valid
@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'user.posts_counter' do
+  context '.posts_counter' do
     it 'is not valid if post_counter is not equal or greater than 0' do
       user.posts_counter = nil
       expect(user).to_not be_valid

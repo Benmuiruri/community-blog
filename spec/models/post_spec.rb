@@ -17,7 +17,7 @@ RSpec.describe Post, type: :model do
   end
   let(:comment6) { Comment.create(post:, author: user1, text: 'Great, I will send you my schedule') }
 
-  context 'post.title' do
+  context 'title' do
     it 'is not valid with a name less than 3 characters' do
       post.title = 'M'
       expect(post).to_not be_valid
@@ -33,7 +33,7 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  context 'posts.comments_counter' do
+  context '.comments_counter' do
     it 'is not valid if comments_counter is not equal or greater than 0' do
       post.comments_counter = nil
       expect(post).to_not be_valid
@@ -44,7 +44,7 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  context 'posts.likes_counter' do
+  context '.likes_counter' do
     it 'is not valid if likes_counter is not equal or greater than 0' do
       post.likes_counter = nil
       expect(post).to_not be_valid
@@ -55,7 +55,7 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  context 'post.last_five_comments' do
+  context 'last_five_comments method' do
     it 'returns an empty array if post has not comments' do
       posts_comments = post.last_five_comments
       expected = []
