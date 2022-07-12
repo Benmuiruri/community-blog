@@ -1,1 +1,2 @@
-<h1>Here is the profile of a user including user Bio and user posts</h1>
+<%= render partial: "shared/user_header", locals: { user: @user } %>
+<%= render partial: "shared/user_bio", locals: { user: @user } %>
