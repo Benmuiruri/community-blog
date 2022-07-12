@@ -1,7 +1,5 @@
 <h1>Here are all the posts by User</h1>
 
 <% @posts.each do |post| %>
-  <%= link_to user_post_path(post.author, post) do %>
-    <%= render partial: "shared/post/post_card", locals: { post: post } %>
-  <% end %>
+  <%= render partial: "shared/post/post_card", locals: { post: post } %>
 <% end %>
