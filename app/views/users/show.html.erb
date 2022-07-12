@@ -4,9 +4,10 @@
 <h2>Most Recent Posts </h2>
 
 <% @recent_posts.each do |post| %>
-  <%= link_to user_posts_path(@user) do %>
+  <%= link_to user_post_path(post.author, post) do %>
     <%= render partial: "shared/post/post_card", locals: { post: post } %>
   <% end %>
 <% end %>
 
 <%= link_to "See all posts" , user_posts_path(@user) %>
+

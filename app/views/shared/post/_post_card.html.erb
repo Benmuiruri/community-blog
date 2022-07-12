@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
     <p class="card-text"><%= post.text %></p>
-    <a href="#" class="btn btn-primary">View Post</a>
+    <%= link_to "See Post", user_post_path(post.author, post), class: "btn btn-primary" %>
   </div>
   <div class="card-footer text-muted">
     <p class="card-text"><small class="text-muted">Comments: <%= post.comments_counter %></small></p>
