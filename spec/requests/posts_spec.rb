@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-   let(:user) { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
-    let(:post) do
+  let(:user) { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
+  let(:post) do
     Post.create(author: user, title: 'Hello', text: 'This is my first post', likes_counter: 0, comments_counter: 0)
   end
-  
 
   describe 'GET /index' do
     before(:example) { get user_posts_path(user.id) }
