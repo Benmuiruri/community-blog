@@ -2,6 +2,6 @@
 
 <% @users.each do |user| %>
   <%= link_to user do %>
-    <%= render partial: "shared/user_header", locals: { user: user } %>
+    <%= render partial: "shared/user/user_header", locals: { user: user } %>
   <% end %>
 <% end %>
