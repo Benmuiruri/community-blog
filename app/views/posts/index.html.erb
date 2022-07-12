@@ -1,3 +1,4 @@
+<%= @posts.first.author.name %>'s Posts 
 <%= render partial: "shared/user/user_header", locals: { user: @posts.first.author } %>
 
 <% @posts.order(comments_counter: :DESC).each do |post| %>

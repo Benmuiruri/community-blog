@@ -1,7 +1,7 @@
+<h2><%= @user.name%>'s Most Recent Posts </h2>
+
 <%= render partial: "shared/user/user_header", locals: { user: @user } %>
 <%= render partial: "shared/user/user_bio", locals: { user: @user } %>
-
-<h2><%= @user.name%>'s Most Recent Posts </h2>
 
 <% @recent_posts.order(comments_counter: :DESC).each do |post| %>
   <%= render partial: "shared/post/post_card", locals: { post: post } %>
