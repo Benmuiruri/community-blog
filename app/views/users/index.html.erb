@@ -1,7 +1,5 @@
 <h1>Here is the list of all Users</h1>
 
-<% @users.each do |user| %>
-  <%= link_to user_path(user) do %>
+<% @users.order(posts_counter: :DESC).each do |user| %>
     <%= render partial: "shared/user/user_header", locals: { user: user } %>
-  <% end %>
 <% end %>

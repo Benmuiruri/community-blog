@@ -1,10 +1,10 @@
 <% if post.comments_counter == 0 %>
   <p>This post does not have any comments</p>
 <% else %>
-  <div class="card" style="width: 50vw;">
+  <div class="card">
     <ul class="list-group list-group-flush">
       <% comments.each do |comment|%>
-      <li class="list-group-item"><%= comment.text %></li>
+      <li class="list-group-item"><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
     </ul>
   </div>

@@ -1,8 +1,7 @@
-<h1>Here are all the posts by User</h1>
+<%= render partial: "shared/user/user_header", locals: { user: @posts.first.author } %>
 
-<% @posts.each do |post| %>
+<% @posts.order(comments_counter: :DESC).each do |post| %>
   <div>
     <%= render partial: "shared/post/post_card", locals: { post: post } %>
-    <%= render partial: "shared/post/comment_card", locals: { post: post, comments: post.last_five_comments} %>
   </div>
 <% end %>

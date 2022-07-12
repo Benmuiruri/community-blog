@@ -1,11 +1,15 @@
-<div class="card mb-3" style="max-width: 50vw;">
+<div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
+    <%= link_to user_path(user) do %>
       <img src="<%= user.photo %>" class="img-fluid img-thumbnail" alt="User Profile Picture">
+    <% end %>
     </div>
     <div class="col-md-8">
       <div class="card-body">
+      <%= link_to user_path(user) do %>
         <h5 class="card-title"><%= user.name %></h5>
+      <% end %>
         <p class="card-text"><small class="text-muted">Number of posts: <%= user.posts.count %></small></p>
     </div>
     </div>
