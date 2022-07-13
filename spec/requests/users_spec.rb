@@ -18,7 +18,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET /show' do
-    let(:user) { User.create(name: 'Monica', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
+    let!(:user) { User.create(name: 'Monica', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
     before(:example) { get user_path(user.id) }
 
     it 'is a success' do
