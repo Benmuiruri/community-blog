@@ -1,3 +1,19 @@
 <h2>Write a new post</h2>
 
-<%= render partial: "shared/post/post_form", locals: { user: Current.user } %>
+<%= form_with model: @post, url: user_posts_path, method: :post do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :text %>
+    <%= form.text_area :text, size: "70x5" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Create Post", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
