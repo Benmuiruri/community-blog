@@ -1,1 +1,10 @@
-<h1>Here is a User post and the posts' comments</h1>
+<div class="card" style="width: 50vw;">
+  <img src="https://res.cloudinary.com/optprime/image/upload/v1657638444/community_blog/Gray_Minimal_How_To_Enhance_Your_Portfolio_Blog_Banner_t3cxwu.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %> by <%= @post.author.name %> </h5>
+    <p class="card-text"><%= @post.text %></p>
+    <p class="card-text"><small class="text-muted">Comments: <%= @post.comments_counter %></small></p>
+    <p class="card-text"><small class="text-muted">Likes: <%= @post.likes_counter %></small></p>
+  </div>
+  <%= render partial: "shared/post/comment_card", locals: { post: @post, comments: @post.comments} %>
+</div>

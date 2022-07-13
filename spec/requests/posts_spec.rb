@@ -1,8 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
+  let!(:user) { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
+  let!(:post) do
+    Post.create(author: user, title: 'Hello', text: 'This is my first post', likes_counter: 0, comments_counter: 0)
+  end
+
   describe 'GET /index' do
-    before(:example) { get user_posts_path(1) }
+    before { @posts = post }
+    before(:example) { get user_posts_path(user.id) }
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
@@ -13,12 +19,12 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'displays correct content in the view' do
-      expect(response.body).to include('Here is a list of posts for a given user')
+      expect(response.body).to include('Tom\'s Posts')
     end
   end
 
   describe 'GET /show' do
-    before(:example) { get user_post_path(1, 1) }
+    before(:example) { get user_post_path(user.id, post) }
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
@@ -29,7 +35,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'displays correct content in the view' do
-      expect(response.body).to include('Here is a User post')
+      expect(response.body).to include('Hello')
     end
   end
 end

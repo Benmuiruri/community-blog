@@ -1,1 +1,12 @@
-<h1>Here is the profile of a user including user Bio and user posts</h1>
+<h2><%= @user.name%>'s Most Recent Posts </h2>
+
+<%= render partial: "shared/user/user_header", locals: { user: @user } %>
+<%= render partial: "shared/user/user_bio", locals: { user: @user } %>
+
+<% @recent_posts.order(comments_counter: :DESC).each do |post| %>
+  <%= render partial: "shared/post/post_card", locals: { post: post } %>
+<% end %>
+
+<%= link_to "See all posts" , user_posts_path(@user), class: "btn btn-primary" if @user.posts_counter> 0 %>
+
+
