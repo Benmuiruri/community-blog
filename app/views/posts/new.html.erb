@@ -1,3 +1,3 @@
-<h1></h1>
+<h2>Write a new post</h2>
 
-<%= @post %>
+<%= render partial: "shared/post/post_form", locals: { user: Current.user } %>
