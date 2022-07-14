@@ -1,19 +1,25 @@
 class CommentsController < ApplicationController
-  # def index
-  #  @comments = Comment.includes(:post).where(post: params[:post_id])
-  # end
   def new
     @comment = Comment.new
   end
 
   def create
-  #   @post = Post.create(post_params)
-  #   @post.author = Current.user
-  #    if @post.save
-  #     flash[:notice] = 'New post created successfully.'
-  #     redirect_to user_post_path(@post.author, @post)
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
+    # Comment.create(post: first_post, author: second_user, text: 'Hi Tom!' )
+    @comment = Comment.create(comment_params)
+    @comment.author = Current.user
+    post = Post.find(params[:post_id])
+    @comment.post = post
+     if @comment.save
+      flash[:notice] = 'Comment added successfully.'
+      redirect_to user_post_path(post.author, post)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private 
+
+  def comment_params
+     params.permit(:text)
+  end
 end
