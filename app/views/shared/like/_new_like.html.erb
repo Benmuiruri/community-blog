@@ -1,0 +1,7 @@
+<% if Current.user.likes.find_by(post: @post).nil? %>
+  <%= button_to raw("<i class=\"fa-solid fa-heart fa-2x\"></i>"), 
+  user_post_likes_path(Current.user, @post), class: "btn btn-primary" %>
+<% else %>
+   <%= button_to raw("<i class=\"fa-solid fa-heart fa-2x\"></i>"), 
+  user_post_like_path(Current.user, @post), method: :delete, class: "btn btn-success" %>
+<% end %>
