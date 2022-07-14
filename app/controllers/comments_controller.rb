@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # Comment.create(post: first_post, author: second_user, text: 'Hi Tom!' )
     @comment = Comment.create(comment_params)
     @comment.author = Current.user
     post = Post.find(params[:post_id])
