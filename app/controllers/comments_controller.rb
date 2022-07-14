@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     @comment.post = post
     if @comment.save
-      flash[:notice] = 'Comment added successfully.'
-      redirect_to user_post_path(post.author, post)
+      redirect_to user_post_path(post.author, post), notice: 'Comment added successfully.'
     else
+      flash[:alert] = "Something went wrong, comment not added!"
       render :new, status: :unprocessable_entity
     end
   end

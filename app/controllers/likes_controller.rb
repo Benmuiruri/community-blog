@@ -10,12 +10,11 @@ class LikesController < ApplicationController
     @like.author = @user
     @like.post = @post
 
-    flash[:notice] = if @like.save
-                       'Successfully liked post.'
-                     else
-                       'Something went wrong, like not posted.'
-                     end
-    redirect_back_or_to user_post_path(@post.author, @post)
+    if @like.save
+      redirect_back_or_to user_post_path(@post.author, @post), notice: 'Successfully liked post.'
+    else
+      flash[:alert] = 'Something went wrong'
+    end
   end
 
   def destroy
