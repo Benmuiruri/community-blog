@@ -10,13 +10,12 @@ class LikesController < ApplicationController
     @like.author = @user
     @like.post = @post
 
-     if @like.save
-      flash[:notice] = 'Successfully liked post.'
-      redirect_back_or_to user_post_path(@post.author, @post)
-    else
-      flash[:notice] = 'Something went wrong, like not posted.'
-     redirect_back_or_to user_post_path(@post.author, @post)
-    end
+    flash[:notice] = if @like.save
+                       'Successfully liked post.'
+                     else
+                       'Something went wrong, like not posted.'
+                     end
+    redirect_back_or_to user_post_path(@post.author, @post)
   end
 
   def destroy
@@ -28,6 +27,7 @@ class LikesController < ApplicationController
   end
 
   private
+
   def likes_params
     params.permit(:author_id, :id)
   end

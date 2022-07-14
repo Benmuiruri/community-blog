@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment.author = Current.user
     post = Post.find(params[:post_id])
     @comment.post = post
-     if @comment.save
+    if @comment.save
       flash[:notice] = 'Comment added successfully.'
       redirect_to user_post_path(post.author, post)
     else
@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def comment_params
-     params.permit(:text)
+    params.permit(:text)
   end
 end
