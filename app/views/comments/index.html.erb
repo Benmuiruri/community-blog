@@ -1,0 +1,8 @@
+
+<%= render partial: "shared/user/user_header", locals: { user: @posts.first.author } %>
+
+<% @posts.order(comments_counter: :DESC).each do |post| %>
+  <div>
+    <%= render partial: "shared/post/post_card", locals: { post: post } %>
+  </div>
+<% end %>
