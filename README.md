@@ -26,6 +26,7 @@ To get a local copy up and running follow these simple example steps.
 - Clone the project `git clone git@github.com:Benmuiruri/community-blog.git`
 - navigate to the folder `cd community-blog`
 - Install required gems `bundle install`
+- Load the database `db:schema:load`
 
 ## Usage
 - start the server `rails server`
