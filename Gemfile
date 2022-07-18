@@ -76,4 +76,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'webdrivers'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
