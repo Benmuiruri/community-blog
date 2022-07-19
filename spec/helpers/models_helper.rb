@@ -1,17 +1,17 @@
 def create_and_activate_user(name)
     user = User.create!(
-      name:, bio: "Bio of #{name}", photo: "#{name}.jpg"
+      name:, photo: "#{name}.jpg", bio: "Bio of #{name}"
     )
-    user.confirm
+    # user validates and saves
     user.save
     user
   end
   
-  def create_posts_for_user(user, count: 1)
+  def create_posts_for_user(author, count: 1)
     posts = []
     count.times do |i|
       posts << Post.create!(
-        user:,
+        author:,
         title: "Post #{i}",
         text: "This is body of post #{i}",
         comments_counter: 0,
@@ -21,11 +21,11 @@ def create_and_activate_user(name)
     posts
   end
   
-  def create_comments_for_post_by_user(post, user, count: 1)
+  def create_comments_for_post_by_user(post, author, count: 1)
     comments = []
     count.times do |i|
       comments << Comment.create!(
-        user:,
+        author:,
         post:,
         text: "Comment #{i}"
       )
