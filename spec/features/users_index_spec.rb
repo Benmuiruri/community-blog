@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'helpers/create_test_models'
 
-RSpec.describe 'Users Index', type: :system do
+RSpec.describe 'Users index page', type: :system do
   before(:all) do
     @username1 = 'Tom'
     @user1= create_user(@username1)
@@ -21,4 +21,9 @@ RSpec.describe 'Users Index', type: :system do
     visit users_path
     expect(page).to have_content('Number of posts: 0')
   end
+
+  # it 'takes user to user show page' do
+  #   click_on @username1
+  #   expect(page).to have_content 'Tom\'s Most Recent Posts'
+  # end
 end
