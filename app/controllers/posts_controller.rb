@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.includes(:author).where(author: params[:user_id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show
-    # @post = Post.find(params[:id])
     @post = Post.includes(:author, comments: [:author]).find(params[:id])
-    @last_five_comments = @post.last_five_comments
   end
 
   def new
