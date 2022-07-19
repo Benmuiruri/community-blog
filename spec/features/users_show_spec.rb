@@ -9,6 +9,10 @@ RSpec.describe 'Users Show page', type: :feature do
     create_posts_for_user(@user1, count: 4)
   end
 
+  # it 'shows the profile picture of user' do
+  #   expect(page).to have_css "img[src='#{@username1}.jpg']"
+  # end
+
   it 'Shows the static text' do
     visit user_path(id: @user1.id)
     expect(page).to have_content(`#{@username1}\'s Most Recent Posts`)
@@ -24,20 +28,24 @@ RSpec.describe 'Users Show page', type: :feature do
     expect(page).to have_content('Number of posts: 4')
   end
 
-  it 'shows number of user bio ' do
+  it 'shows number of user bio' do
     visit user_path(id: @user1.id)
     expect(page).to have_content('Teacher from Kenya')
   end
 
-  # it 'shows user\s first three posts' do
-  #   visit user_path(id: @user1.id)
-  #   expect(page).to have_button('See Post')
+  it 'shows user\s first three posts' do
+    visit user_path(id: @user1.id)
+    expect(page).to have_selector(:link_or_button, 'See Post', :count => 3)
+    # save_and_open_page
+  end
+
+  #  it 'See post button redirects to show post page' do
+  #   page.find_link('See Post').text
   # end
 
   it 'redirects to all posts when button is clicked' do
-    save_and_open_page
     # expect(page).to have_content("Test")
-    # expect(page).to have_selector(:link_or_button, 'See Post')
+
     # expect(page).to have_css('.btn')
     # visit user_path(id: @user1.id)
     # click_button 'See all posts'
