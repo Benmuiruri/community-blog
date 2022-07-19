@@ -7,6 +7,7 @@
   <div class="card-body">
     <%= link_to user_post_path(post.author, post) do %>
       <h5 class="card-text"><%= post.title %></h5>
+      <p><%= post.text %></p>
     <% end %>
     <%= link_to "See Post", user_post_path(post.author, post), class: "btn btn-primary" %>
   </div>
