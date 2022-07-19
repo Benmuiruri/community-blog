@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.1'
+ruby '3.1.2'
 gem 'bullet'
 gem 'font-awesome-sass', '~> 6.1.1'
 gem 'rspec'
@@ -56,6 +56,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'launchy'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
