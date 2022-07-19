@@ -22,8 +22,8 @@ RSpec.describe 'Users index page', type: :system do
     expect(page).to have_content('Number of posts: 0')
   end
 
-  # it 'takes user to user show page' do
-  #   click_on @username1
-  #   expect(page).to have_content 'Tom\'s Most Recent Posts'
-  # end
+  it 'takes user to user show page' do
+    click_on @username1
+    expect(page).to have_content 'Tom\'s Most Recent Posts'
+  end
 end
