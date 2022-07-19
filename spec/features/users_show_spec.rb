@@ -1,10 +1,12 @@
 require 'rails_helper'
 require 'helpers/create_test_models'
+require 'helpers/models_helper'
 
 RSpec.describe 'Users Show page', type: :feature do
   before(:all) do
     @username1 = 'Tom'
     @user1 = create_user(@username1)
+    create_posts_for_user(@user1, count: 4)
   end
 
   it 'Shows the static text' do
@@ -19,7 +21,7 @@ RSpec.describe 'Users Show page', type: :feature do
 
   it 'shows number of user posts ' do
     visit user_path(id: @user1.id)
-    expect(page).to have_content('Number of posts: 0')
+    expect(page).to have_content('Number of posts: 4')
   end
 
   it 'shows number of user bio ' do

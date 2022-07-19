@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.1'
+ruby '3.1.2'
 gem 'bullet'
 gem 'font-awesome-sass', '~> 6.1.1'
 gem 'rspec'
