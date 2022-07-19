@@ -9,12 +9,12 @@ RSpec.describe 'Users Show page', type: :feature do
 
   it 'Shows the static text' do
     visit user_path(id: @user1.id)
-    expect(page).to have_content(`#{@username1 }\'s Most Recent Posts`)
+    expect(page).to have_content(`#{@username1}\'s Most Recent Posts`)
   end
 
   it 'Shows the User\s name' do
     visit user_path(id: @user1.id)
-    expect(page).to have_content @username1 
+    expect(page).to have_content @username1
   end
 
   it 'shows number of user posts ' do

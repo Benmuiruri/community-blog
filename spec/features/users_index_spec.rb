@@ -4,7 +4,7 @@ require 'helpers/create_test_models'
 RSpec.describe 'Users index page', type: :system do
   before(:all) do
     @username1 = 'Tom'
-    @user1= create_user(@username1)
+    @user1 = create_user(@username1)
   end
 
   it 'Shows the static text' do

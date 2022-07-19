@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.1.1'
+gem 'bullet'
 gem 'font-awesome-sass', '~> 6.1.1'
 gem 'rspec'
 gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'bullet'
 gem 'xmpp4r'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -73,9 +73,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'webdrivers'
-  gem 'factory_bot_rails'
-  gem 'database_cleaner'
 end
