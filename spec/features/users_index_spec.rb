@@ -17,6 +17,11 @@ RSpec.describe 'Users index page', type: :system do
     expect(page).to have_content(@username1)
   end
 
+   it 'shows the profile picture of user' do
+    visit user_path(id: @user1.id)
+    find("img[src='https://www.example.com/image']")
+  end
+
   it 'shows number of user posts ' do
     visit users_path
     expect(page).to have_content('Number of posts: 0')
