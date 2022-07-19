@@ -9,9 +9,10 @@ RSpec.describe 'Users Show page', type: :feature do
     create_posts_for_user(@user1, count: 4)
   end
 
-  # it 'shows the profile picture of user' do
-  #   expect(page).to have_css "img[src='#{@username1}.jpg']"
-  # end
+  it 'shows the profile picture of user' do
+    visit user_path(id: @user1.id)
+    find("img[src='https://www.example.com/image']")
+  end
 
   it 'Shows the static text' do
     visit user_path(id: @user1.id)

@@ -1,6 +1,6 @@
 def create_user(name)
   user = User.create!(name:,
-                      photo: 'https://bit.ly/3AWFWrv', bio: 'Teacher from Kenya.', posts_counter: 0)
+                      photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.', posts_counter: 0)
   user.save
   user
 end
