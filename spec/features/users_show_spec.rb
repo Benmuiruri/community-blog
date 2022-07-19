@@ -9,7 +9,7 @@ RSpec.describe 'Users Show page', type: :feature do
     create_posts_for_user(@user1, count: 4)
   end
 
-  it 'shows the profile picture of user' do
+  it 'shows the profile picture of a user' do
     visit user_path(id: @user1.id)
     find("img[src='https://www.example.com/image']")
   end
@@ -32,6 +32,11 @@ RSpec.describe 'Users Show page', type: :feature do
   it 'shows number of user bio' do
     visit user_path(id: @user1.id)
     expect(page).to have_content('Teacher from Kenya')
+  end
+
+  it 'shows a post title' do
+     visit user_path(id: @user1.id)
+      expect(page).to have_content 'Post 3'
   end
 
   it 'shows user\s first three posts' do
