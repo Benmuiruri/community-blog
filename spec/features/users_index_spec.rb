@@ -1,11 +1,10 @@
 require 'rails_helper'
+require 'helpers/create_test_models'
 
 RSpec.describe 'Users Index', type: :system do
   before(:all) do
-    user = User.create(name: "Tom", photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0)
-    user.save
-    user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0)
-    user2.save
+    @username1 = 'Tom'
+    @user1= create_user(@username1)
   end
 
   it 'Shows the static text' do
@@ -15,6 +14,6 @@ RSpec.describe 'Users Index', type: :system do
 
   it 'Shows username of user' do
     visit users_path
-    expect(page).to have_content("Tom")
+    expect(page).to have_content(@username1)
   end
 end
