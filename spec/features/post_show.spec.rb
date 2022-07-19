@@ -11,27 +11,27 @@ describe 'Post Show' do
     visit user_post_path(@user, @post)
   end
 
-    it 'shows username' do
-      expect(page).to have_content @user.name
-    end
+  it 'shows username' do
+    expect(page).to have_content @user.name
+  end
 
-    it 'shows a post\'s title' do
-      expect(page).to have_content @post.title
-    end
+  it 'shows a post\'s title' do
+    expect(page).to have_content @post.title
+  end
 
-    it 'shows some of the post\'s body' do
-      expect(page).to have_content @post.text
-    end
+  it 'shows some of the post\'s body' do
+    expect(page).to have_content @post.text
+  end
 
-    it 'shows the all comments on the post' do
-      @comments.each { |comment| expect(page).to have_content comment.text }
-    end
+  it 'shows the all comments on the post' do
+    @comments.each { |comment| expect(page).to have_content comment.text }
+  end
 
-    it 'shows how many comments the post has' do
-      expect(page).to have_content '2 Comments'
-    end
+  it 'shows how many comments the post has' do
+    expect(page).to have_content 'Comments: 2'
+  end
 
-    it 'shows how many likes the post has' do
-      expect(page).to have_button '0 Likes'
-    end
+  it 'shows how many likes the post has' do
+    expect(page).to have_content 'Likes: 0'
+  end
 end

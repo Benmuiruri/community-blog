@@ -2,7 +2,7 @@ def create_and_activate_user(name)
   user = User.create!(
     name:, photo: "#{name}.jpg", bio: "Bio of #{name}"
   )
-  # user validates and saves
+  # user validates and save
   user.save
   user
 end
