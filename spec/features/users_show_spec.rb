@@ -16,4 +16,9 @@ RSpec.describe 'Users Show page', type: :feature do
     visit user_path(id: @user1.id)
     expect(page).to have_content @username1 
   end
+
+  it 'shows number of user posts ' do
+    visit users_path
+    expect(page).to have_content('Number of posts: 0')
+  end
 end

@@ -17,7 +17,7 @@ RSpec.describe 'Users index page', type: :system do
     expect(page).to have_content(@username1)
   end
 
-  it 'Number of user posts ' do
+  it 'shows number of user posts ' do
     visit users_path
     expect(page).to have_content('Number of posts: 0')
   end
