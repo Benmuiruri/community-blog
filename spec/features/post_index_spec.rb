@@ -35,7 +35,6 @@ describe 'Post Index' do
   #   expect(page).to have_content @comments.first.text
   # end
 
-
   it 'shows how many comments a post has' do
     expect(page).to have_content 'Comments: 2'
   end
