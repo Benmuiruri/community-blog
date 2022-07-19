@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.includes(:author).where(author: params[:user_id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show
-    @post = Post.find(params[:id])
-    @last_five_comments = @post.last_five_comments
+    @post = Post.includes(:author, comments: [:author]).find(params[:id])
   end
 
   def new
@@ -18,7 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to user_post_path(@post.author, @post), 'New post created successfully.'
     else
-      flash[:alert] = "Something went wrong, post not created"
+      flash[:alert] = 'Something went wrong, post not created'
       render :new, status: :unprocessable_entity
     end
   end

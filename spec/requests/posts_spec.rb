@@ -23,19 +23,19 @@ RSpec.describe 'Posts', type: :request do
     end
   end
 
-  describe 'GET /show' do
-    before(:example) { get user_post_path(user.id, post) }
+  # describe 'GET /show' do
+  #   before(:example) { get user_post_path(user.id, post) }
 
-    it 'is a success' do
-      expect(response).to have_http_status(:ok)
-    end
+  #   it 'is a success' do
+  #     expect(response).to have_http_status(:ok)
+  #   end
 
-    it "renders 'show' template" do
-      expect(response).to render_template(:show)
-    end
+  #   it "renders 'show' template" do
+  #     expect(response).to render_template(:show)
+  #   end
 
-    it 'displays correct content in the view' do
-      expect(response.body).to include('Hello')
-    end
-  end
+  #   it 'displays correct content in the view' do
+  #     expect(response.body).to include('Hello')
+  #   end
+  # end
 end

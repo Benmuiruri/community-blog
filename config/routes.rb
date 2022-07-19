@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'users#index'
+  root to: 'main#index'
 end
