@@ -35,19 +35,19 @@ RSpec.describe 'Users Show page', type: :feature do
   end
 
   it 'shows a post title' do
-     visit user_path(id: @user1.id)
-      expect(page).to have_content 'Post 3'
+    visit user_path(id: @user1.id)
+    expect(page).to have_content 'Post 3'
   end
 
   it 'shows user\s first three posts' do
     visit user_path(id: @user1.id)
-    expect(page).to have_selector(:link_or_button, 'See Post', :count => 3)
+    expect(page).to have_selector(:link_or_button, 'See Post', count: 3)
   end
 
-   it 'See post button redirects to show post page' do
-     visit user_path(id: @user1.id)
-     click_link 'Post 3'
-     expect(page).to have_current_path(user_post_path(@user1, @user1.posts.last))
+  it 'See post button redirects to show post page' do
+    visit user_path(id: @user1.id)
+    click_link 'Post 3'
+    expect(page).to have_current_path(user_post_path(@user1, @user1.posts.last))
   end
 
   it 'redirects to all posts when button is clicked' do
