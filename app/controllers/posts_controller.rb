@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
+    @post = Post.includes(:author, comments: [:author]).find(params[:id])
     @last_five_comments = @post.last_five_comments
   end
 
