@@ -60,6 +60,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -76,7 +77,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'webdrivers'

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
+  before(:all) do
+    user = FactoryBot.create(:user)
+  end
+  
   describe 'GET /index' do
     before(:example) { get '/users' }
 
@@ -18,8 +22,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET /show' do
-    let!(:user) { User.create(name: 'Monica', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Kenya.', posts_counter: 0) }
-    before(:example) { get user_path(user.id) }
+    before(:example) { get '/users/1' }
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
