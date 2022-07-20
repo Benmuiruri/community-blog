@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.includes(:author, comments: [:author]).find(params[:id])
+    @post = Post.includes(:author).find(params[:id])
   end
 
   def new
@@ -16,10 +16,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
-    @post.author = Current.user
+    @post = Post.new(post_params)
+    @post.comments_counter = 0
+    @post.likes_counter = 0
+    author = current_user
+    @post.author = author
     if @post.save
-      redirect_to user_post_path(@post.author, @post), 'New post created successfully.'
+      redirect_to user_post_url(author, @post), notice:'New post created successfully.' 
     else
       flash[:alert] = 'Something went wrong, post not created'
       render :new, status: :unprocessable_entity
