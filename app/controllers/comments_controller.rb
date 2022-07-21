@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   
-  def index
-    @post = Post.includes(:author, comments: [:author]).find(params[:id])
-  end
+  # def index
+  #   @post = Post.includes(:author, comments: [:author]).find(params[:id])
+  # end
 
   def create
     @comment = Comment.create(comment_params)
