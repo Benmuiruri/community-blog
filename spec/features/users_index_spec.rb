@@ -1,10 +1,11 @@
 require 'rails_helper'
 require 'helpers/create_test_models'
 
-RSpec.describe 'Users index page', type: :system do
-  before(:all) do
-    @username1 = 'Tom'
-    @user1 = create_user(@username1)
+RSpec.describe 'Users index page', type: :feature do
+  let(:user) { User.create(name: 'Monica', photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.', posts_counter: 0, email: "benten@gmail.com", password: "123456", confirmed_at: Date.today ) }
+
+  before  do
+    user.save!
   end
 
   it 'Shows the static text' do
@@ -14,11 +15,11 @@ RSpec.describe 'Users index page', type: :system do
 
   it 'Shows username of user' do
     visit users_path
-    expect(page).to have_content(@username1)
+    expect(page).to have_content(user.name)
   end
 
   it 'shows the profile picture of user' do
-    visit user_path(id: @user1.id)
+    visit user_path(id: user.id)
     find("img[src='https://www.example.com/image']")
   end
 
@@ -29,7 +30,7 @@ RSpec.describe 'Users index page', type: :system do
 
   it 'takes user to user show page' do
     visit users_path
-    click_on @username1
-    expect(page).to have_content 'Tom\'s Most Recent Posts'
+    click_on user.name
+    expect(page).to have_content 'Monica\'s Most Recent Posts'
   end
 end

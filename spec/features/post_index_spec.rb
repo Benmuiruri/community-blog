@@ -42,9 +42,4 @@ describe 'Post Index' do
   it 'shows how many likes a post has' do
     expect(page).to have_content 'Likes: 0'
   end
-
-  it 'redirects to post page after clicking on it' do
-    first('.btn-primary').click
-    expect(page).to have_current_path(user_post_path(@user, @posts.last))
-  end
 end

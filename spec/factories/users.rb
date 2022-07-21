@@ -3,7 +3,7 @@ FactoryBot.define do
     name {"Joe"}
     photo {"www.example.com"}
     bio {"Teacher from Kenya"}
-    email {"joe@gmail.com"}
+    sequence(:email) { |n| "test-#{n}@example.com" }
     posts_counter {0}
     password { "password"} 
     password_confirmation { "password" }
@@ -14,7 +14,13 @@ FactoryBot.define do
     author
     title {'The amazing article title'}
     text { 'Some amazing text'}
-    likes_counter {0}
+    likes_counter {1}
     comments_counter {0}
+  end
+
+  factory :comment do
+    author
+    post
+    text { 'An amazing comment'}
   end
 end
