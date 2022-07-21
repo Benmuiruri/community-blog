@@ -8,10 +8,10 @@ class Ability
 
     return unless user.present?
 
-    can [:read, :create, :update, :destroy], Post, author: user
+    can %i[read create update destroy], Post, author: user
 
     return unless user.role === 'admin'
 
-   can :manage, Post
+    can :manage, Post
   end
 end
