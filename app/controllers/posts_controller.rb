@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  
+
   def index
     @posts = Post.includes(:author).where(author: params[:user_id])
     respond_to do |format|
@@ -10,12 +10,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
-
   def new
     @post = Post.new
+  end
+
+  def show
+    @post = Post.includes(:author, comments: [:author]).find(params[:id])
   end
 
   def create

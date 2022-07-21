@@ -9,10 +9,6 @@
 
 <%= link_to "See all posts" , user_posts_path(@user), class: "btn btn-primary" if @user.posts_counter> 0 %>
 
-<% if can? :create, comment %>
-  <%= link_to "Create new post" , new_user_post_path(@user), class: "btn btn-primary" %> 
-<% end %>
-
-
+<%= link_to "Create new post" , new_user_post_path(@user), class: "btn btn-primary" %>
 
 
