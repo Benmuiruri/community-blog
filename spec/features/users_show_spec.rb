@@ -3,7 +3,7 @@ require 'helpers/create_test_models'
 require 'helpers/models_helper'
 
 RSpec.describe 'Users Show page', type: :feature do
-  let(:user) { User.create(name: 'Monica', photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.', posts_counter: 0, email: "benten@gmail.com", password: "123456", confirmed_at: Date.today ) }
+  let(:user) { User.create(name: 'Monica', photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.', posts_counter: 0, email: 'benten@gmail.com', password: '123456', confirmed_at: Date.today) }
 
   before do
     create_posts_for_user(user, count: 4)

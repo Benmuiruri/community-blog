@@ -2,9 +2,9 @@ require 'rails_helper'
 require 'helpers/create_test_models'
 
 RSpec.describe 'Users index page', type: :feature do
-  let(:user) { User.create(name: 'Monica', photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.', posts_counter: 0, email: "benten@gmail.com", password: "123456", confirmed_at: Date.today ) }
+  let(:user) { User.create(name: 'Monica', photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.', posts_counter: 0, email: 'benten@gmail.com', password: '123456', confirmed_at: Date.today) }
 
-  before  do
+  before do
     user.save!
   end
 
