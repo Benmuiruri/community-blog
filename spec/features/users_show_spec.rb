@@ -3,11 +3,11 @@ require 'helpers/create_test_models'
 require 'helpers/models_helper'
 
 RSpec.describe 'Users Show page', type: :feature do
+  let(:user) { User.create(name: 'Monica', photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.', posts_counter: 0, email: 'benten@gmail.com', password: '123456', confirmed_at: Date.today) }
+
   before do
-    @username1 = 'Tom'
-    @user1 = create_user(@username1)
-    create_posts_for_user(@user1, count: 4)
-    visit user_path(id: @user1.id)
+    create_posts_for_user(user, count: 4)
+    visit user_path(id: user.id)
   end
 
   it 'shows the profile picture of a user' do
@@ -40,6 +40,6 @@ RSpec.describe 'Users Show page', type: :feature do
 
   it 'redirects to all posts when button is clicked' do
     click_link 'See all posts'
-    expect(page).to have_current_path(user_posts_path(@user1))
+    expect(page).to have_current_path(user_posts_path(user))
   end
 end
