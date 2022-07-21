@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @posts = Post.includes(:author).where(author: params[:user_id])
     respond_to do |format|
