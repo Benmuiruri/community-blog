@@ -11,10 +11,8 @@ class PostsController < ApplicationController
   end
 
   def show
-     @post = Post.includes(:author).find(params[:id])
-    if @post.comments.any?
-      @post = Post.includes(:author, comments: [:author]).find(params[:id])
-    end
+    @post = Post.includes(:author).find(params[:id])
+    @post = Post.includes(:author, comments: [:author]).find(params[:id]) if @post.comments.any?
   end
 
   def create
