@@ -6,6 +6,10 @@ class Comment < ApplicationRecord
 
   after_save :update_comments_counter
 
+  def as_json(options={})
+    { author: user.name, comment: text }
+  end
+
   def update_comments_counter
     post.increment!(:comments_counter)
   end
