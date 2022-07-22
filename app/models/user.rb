@@ -14,6 +14,10 @@ class User < ApplicationRecord
     role == 'admin'
   end
 
+  def as_json(_)
+    super(only: %i[id name bio photo posts_counter])
+  end
+
   def last_three_posts
     posts.includes(:author).limit(3).order(created_at: :DESC)
   end

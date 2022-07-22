@@ -4,10 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:author).where(author_id: params[:user_id])
-    respond_to do |format|
-      format.html
-      format.json { render json: @posts }
-    end
   end
 
   def new
