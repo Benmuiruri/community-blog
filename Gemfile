@@ -4,7 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 gem 'bullet'
 gem 'devise'
+gem 'devise-jwt', '~> 0.9.0'
+gem 'dotenv-rails', groups: %i[development test]
 gem 'font-awesome-sass', '~> 6.1.1'
+gem 'rack-cors'
 gem 'rspec'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'xmpp4r'
