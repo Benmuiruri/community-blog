@@ -5,6 +5,10 @@
     <ul class="list-group list-group-flush">
       <% comments.each do |comment|%>
       <li class="list-group-item"><%= comment.author.name %>: <%= comment.text %></li>
+        <% if can? :destroy, comment %>
+          <%= button_to "Delete Comment", user_post_comment_path(comment.author, post, comment), 
+          method: :delete, data: { confirm: "Are you sure?" } %> 
+        <% end %>
       <% end %>
     </ul>
   </div>

@@ -6,6 +6,9 @@
     <p class="card-text"><small class="text-muted">Comments: <%= @post.comments_counter %></small></p>
     <p class="card-text"><small class="text-muted">Likes: <%= @post.likes_counter %></small></p>
     <%= render partial: "shared/like/new_like", locals: { post: @post }%>
+    <% if can? :destroy, @post %>
+      <%= button_to "Delete Post", user_post_path(@post.author, @post), method: :delete %> 
+    <% end %>
   </div>
   <%= render partial: "shared/post/comment_card", locals: { post: @post, comments: @post.comments} %>
   <%= render partial: "shared/comment/new_comment"%>

@@ -1,36 +1,34 @@
 require 'rails_helper'
-require 'helpers/create_test_models'
+require 'helpers/models_helper'
 
-RSpec.describe 'Users index page', type: :feature do
-  let(:user) { User.create(name: 'Monica', photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.', posts_counter: 0, email: 'benten@gmail.com', password: '123456', confirmed_at: Date.today) }
+RSpec.feature 'Users Page' do
+  feature 'shows users' do
+    background do
+      visit new_user_session_path
+      @user1 = User.create(name: 'Monica', photo: 'https://www.example.com/image', bio: 'Teacher from Kenya.',
+                           posts_counter: 0, email: 'benten@gmail.com', password: '123456', confirmed_at: Date.today)
+      within 'form' do
+        fill_in 'Email', with: @user1.email
+        fill_in 'Password', with: @user1.password
+      end
+      click_button 'Log in'
+    end
 
-  before do
-    user.save!
-  end
+    scenario 'Shows the static text' do
+      expect(page).to have_content('Here is the list of all Users')
+    end
 
-  it 'Shows the static text' do
-    visit users_path
-    expect(page).to have_content('Here is the list of all Users')
-  end
+    scenario 'shows the user\'s shows username' do
+      expect(page).to have_content @user1.name
+    end
 
-  it 'Shows username of user' do
-    visit users_path
-    expect(page).to have_content(user.name)
-  end
+    scenario 'shows the number of posts the user has written' do
+      expect(page).to have_content 'Number of posts: 0'
+    end
 
-  it 'shows the profile picture of user' do
-    visit user_path(id: user.id)
-    find("img[src='https://www.example.com/image']")
-  end
-
-  it 'shows number of user posts ' do
-    visit users_path
-    expect(page).to have_content('Number of posts: 0')
-  end
-
-  it 'takes user to user show page' do
-    visit users_path
-    click_on user.name
-    expect(page).to have_content 'Monica\'s Most Recent Posts'
+    scenario 'redirects to users show page' do
+      click_on @user1.name
+      expect(page).to have_content(`#{@username1}\'s Most Recent Posts`)
+    end
   end
 end
