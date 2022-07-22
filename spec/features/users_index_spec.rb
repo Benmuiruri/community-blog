@@ -15,30 +15,20 @@ RSpec.feature 'Users Page' do
     end
 
     scenario 'Shows the static text' do
-        expect(page).to have_content('Here is the list of all Users')
+      expect(page).to have_content('Here is the list of all Users')
     end
 
-    scenario 'Shows the static text' do
-        expect(page).to have_content('Here is the list of all Users')
-    end
-
-         scenario 'shows the user\'s shows username' do
-        expect(page).to have_content @user1.name
-    end
-
-    scenario 'shows the user\'s profile picture' do
-       expect(page).to have_css "img[src='https://www.example.com/image']"
+    scenario 'shows the user\'s shows username' do
+      expect(page).to have_content @user1.name
     end
 
     scenario 'shows the number of posts the user has written' do
-        expect(page).to have_content 'Number of posts: 0'
+      expect(page).to have_content 'Number of posts: 0'
     end
 
     scenario 'redirects to users show page' do
-        click_on @user1.name
-       expect(page).to have_content(`#{@username1}\'s Most Recent Posts`)
+      click_on @user1.name
+      expect(page).to have_content(`#{@username1}\'s Most Recent Posts`)
     end
-
-
   end
 end

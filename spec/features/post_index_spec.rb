@@ -18,32 +18,23 @@ RSpec.feature 'Users Page' do
     end
 
     scenario 'shows the user\'s profile picture' do
-       expect(page).to have_css "img[src='https://www.example.com/image']"
-    end
-
-     scenario 'shows the user\'s shows username' do
-        expect(page).to have_content @user1.name
-    end
-
-    scenario 'shows the number of posts the user has written' do
-        expect(page).to have_content 'Number of posts: 1'
+      expect(page).to have_css "img[src='https://www.example.com/image']"
     end
 
     scenario 'shows a post\'s title' do
-        expect(page).to have_content @post.title
+      expect(page).to have_content @post.title
     end
 
-     scenario 'shows some of the post\'s text' do
-         expect(page).to have_content @post.text
+    scenario 'shows some of the post\'s text' do
+      expect(page).to have_content @post.text
     end
 
-     scenario 'shows how many comments a post has' do
-         expect(page).to have_content 'Comments: 2'
+    scenario 'shows how many comments a post has' do
+      expect(page).to have_content 'Comments: 2'
     end
 
-     scenario 'shows how many comments a post has' do
-         expect(page).to have_content 'Likes: 0'
+    scenario 'shows how many comments a post has' do
+      expect(page).to have_content 'Likes: 0'
     end
-
   end
 end
