@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @recent_posts = @user.last_three_posts.includes(:author)
     respond_to do |format|
       format.html
-      format.json { render json: @user}
+      format.json { render json: @user }
     end
   end
 end

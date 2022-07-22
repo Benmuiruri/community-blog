@@ -9,7 +9,7 @@ class Comment < ApplicationRecord
   def as_json(_)
     super(except: %i[updated_at created_at])
   end
-  
+
   def update_comments_counter
     post.increment!(:comments_counter)
   end
