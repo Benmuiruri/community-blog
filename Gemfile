@@ -8,6 +8,9 @@ gem 'font-awesome-sass', '~> 6.1.1'
 gem 'rspec'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'xmpp4r'
+gem 'rack-cors'
+gem "devise-jwt", "~> 0.9.0"
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
