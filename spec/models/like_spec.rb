@@ -16,7 +16,7 @@ RSpec.describe Like, type: :model do
   describe 'Like' do
     it 'should increase the like count of a post' do
       like.save!
-      post_likes = 1
+      post_likes = 2
       expect(post.likes_counter).to eq(post_likes)
     end
   end
