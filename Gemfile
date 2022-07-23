@@ -11,6 +11,9 @@ gem 'rack-cors'
 gem 'rspec'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'xmpp4r'
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
@@ -67,6 +70,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
