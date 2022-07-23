@@ -9,11 +9,11 @@ gem 'dotenv-rails', groups: %i[development test]
 gem 'font-awesome-sass', '~> 6.1.1'
 gem 'rack-cors'
 gem 'rspec'
-gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'xmpp4r'
 gem 'rswag'
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'xmpp4r'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
